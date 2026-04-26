@@ -25,7 +25,11 @@
             min-height: 100vh;
         }
 
-        header { margin-top: 40px; text-align: center; }
+        header {
+            margin-top: 40px;
+            text-align: center;
+            animation: fadeInDown 1s ease;
+        }
 
         h1 {
             font-size: clamp(2rem, 8vw, 3.5rem);
@@ -37,6 +41,44 @@
             margin-bottom: 20px;
         }
 
+        /* YENİ: Canlı Rozeti ve Gün Sayacı */
+        .live-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: rgba(0, 255, 136, 0.05);
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: bold;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        .day-counter {
+            font-weight: bold;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .day-number { color: white; font-weight: 900; margin-left: 5px; }
+
         .ad-card {
             width: 95%;
             max-width: 1000px;
@@ -46,6 +88,7 @@
             border-radius: 30px;
             padding: 20px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
         .video-wrapper {
@@ -82,9 +125,9 @@
             width: 100%;
             max-width: 500px;
             padding: 0 20px;
+            animation: fadeInUp 1s ease 0.4s both;
         }
 
-        /* Düzenlenmiş Fiyat Alanı */
         .price-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -113,7 +156,6 @@
         .amount { font-size: 2.2rem; font-weight: 900; }
         .price-item.next .amount { color: var(--primary); }
 
-        /* Buton - Daha yukarıda ve belirgin */
         .cta-button {
             display: block;
             background: var(--primary);
@@ -130,7 +172,6 @@
 
         .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255, 69, 0, 0.5); }
 
-        /* Kurallar - En altta ve daha temiz */
         .rule-box {
             font-size: 0.85rem;
             color: #666;
@@ -143,8 +184,18 @@
 
         .reset-timer { margin-top: 10px; font-size: 0.75rem; color: #444; }
 
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+        }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+
         @media (max-width: 600px) {
             .info-panel { grid-template-columns: 1fr; }
+            .live-status { flex-direction: column; gap: 5px; }
         }
     </style>
 </head>
@@ -155,6 +206,16 @@
     </header>
 
     <main class="ad-card">
+        <div class="live-status">
+            <div class="status-badge">
+                <div class="live-dot"></div>
+                LIVE
+            </div>
+            <div class="day-counter">
+                DAY <span class="day-number">001</span>
+            </div>
+        </div>
+
         <div class="video-wrapper">
             <video autoplay muted loop playsinline>
                 <source src="video.mp4" type="video/mp4">
