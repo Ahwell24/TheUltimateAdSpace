@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Billboard | One Day, One Ad</title>
+    <title>The Ultimate Ad Space | Daily Digital Billboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -26,7 +26,6 @@
             min-height: 100vh;
         }
 
-        /* Arka plana hafif bir ışık efekti */
         body::before {
             content: "";
             position: fixed;
@@ -43,7 +42,7 @@
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 8vw, 4rem);
             font-weight: 900;
             letter-spacing: -2px;
             background: linear-gradient(to right, #fff, #888);
@@ -64,16 +63,16 @@
             margin-bottom: 20px;
         }
 
-        /* Ana Kart Yapısı */
+        /* Video alanı daha büyük ve heybetli */
         .ad-card {
-            width: 90%;
-            max-width: 900px;
+            width: 95%;
+            max-width: 1100px;
             background: var(--glass);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 30px;
-            padding: 20px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            padding: 25px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
             animation: fadeInUp 1s ease 0.2s both;
         }
 
@@ -84,11 +83,11 @@
             overflow: hidden;
             aspect-ratio: 16 / 9;
             background: #000;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
         }
 
-        video { width: 100%; height: 100%; object-fit: cover; }
+        video { width: 100%; height: 100%; object-fit: contain; }
 
-        /* Bilgi Paneli */
         .info-panel {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -100,59 +99,66 @@
         }
 
         .info-box { text-align: left; }
-        .info-label { color: #888; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; }
+        .info-label { color: #888; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
         .info-value { font-size: 1.2rem; font-weight: bold; }
-        .info-value a { color: var(--accent); text-decoration: none; }
+        .info-value a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
+        .info-value a:hover { border-bottom: 1px solid var(--accent); }
 
-        /* Fiyat ve Buton */
         .pricing-section {
-            margin-top: 40px;
+            margin-top: 50px;
             text-align: center;
             animation: fadeInUp 1s ease 0.4s both;
+            padding-bottom: 60px;
         }
 
         .price-grid {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 50px;
             margin-bottom: 30px;
         }
 
-        .price-item .label { display: block; color: #888; margin-bottom: 5px; }
-        .price-item .amount { font-size: 2rem; font-weight: 800; color: #fff; }
+        .price-item .label { display: block; color: #888; margin-bottom: 5px; font-size: 0.9rem; }
+        .price-item .amount { font-size: clamp(1.5rem, 5vw, 2.5rem); font-weight: 800; color: #fff; }
         .price-item.next .amount { color: var(--primary); }
 
         .cta-button {
             display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 20px 60px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            padding: 22px 70px;
+            border-radius: 60px;
+            font-size: 1.3rem;
+            font-weight: 800;
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(255, 69, 0, 0.4);
         }
 
         .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(255, 69, 0, 0.5);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 45px rgba(255, 69, 0, 0.6);
         }
 
-        /* Animasyonlar */
+        .reset-text {
+            margin-top: 25px;
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
+            from { opacity: 0; transform: translateY(-40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 600px) {
             .info-panel { grid-template-columns: 1fr; }
-            h1 { font-size: 2.2rem; }
+            .price-grid { gap: 20px; }
         }
     </style>
 </head>
@@ -160,7 +166,7 @@
 
     <header>
         <div class="status-badge">● LIVE: AD SPACE #001</div>
-        <h1>Daily Billboard</h1>
+        <h1>The Ultimate Space</h1>
     </header>
 
     <main class="ad-card">
@@ -172,12 +178,12 @@
 
         <div class="info-panel">
             <div class="info-box">
-                <div class="info-label">Bugünkü Sahibi</div>
-                <div class="info-value">@KullaniciAdi</div>
+                <div class="info-label">CURRENT OWNER</div>
+                <div class="info-value">@YourUsername</div>
             </div>
             <div class="info-box">
-                <div class="info-label">Website / Link</div>
-                <div class="info-value"><a href="https://google.com" target="_blank">Ziyaret Et →</a></div>
+                <div class="info-label">WEBSITE / LINK</div>
+                <div class="info-value"><a href="https://yourlink.com" target="_blank">VISIT NOW →</a></div>
             </div>
         </div>
     </main>
@@ -185,21 +191,21 @@
     <section class="pricing-section">
         <div class="price-grid">
             <div class="price-item">
-                <span class="label">BUGÜN</span>
-                <span class="amount">1$</span>
+                <span class="label">TODAY'S PRICE</span>
+                <span class="amount">$10</span>
             </div>
             <div class="price-item next">
-                <span class="label">YARIN</span>
-                <span class="amount">2$</span>
+                <span class="label">TOMORROW</span>
+                <span class="amount">$20</span>
             </div>
         </div>
         
-        <a href="https://l.instagram.com/?u=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.ahmetfaruk.motivasyonaliskanlik%26pcampaignid%3Dweb_share%26utm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnGjACo9JHFO3-ozUKWHAE0xJ808kOmwezo6W9g8kgh6UM5DslaQJ5M-u72l8_aem_0MP-r1kZf93XUquMKBc65w&e=AT7fQuebrBePGwB31rtcGmjcx8aiA1ePtofcqasXWvGE3ZL5Hrq2Gdvzzl8ft9VwvHBiBJTgVeA_kt93Er0MPQPmvPG3_rXCWJF9ve1V_A" class="cta-button">YERİNİ ŞİMDİ AYIRT</a>
-        <p style="margin-top: 20px; color: #555; font-size: 0.8rem;">*Her gün Türkiye saatiyle 00:00'da fiyat artar.</p>
+        <a href="YOUR_SHOPIER_LINK" class="cta-button">BOOK YOUR SPACE NOW</a>
+        <p class="reset-text">Price increases every day at 00:00.</p>
     </section>
 
-    <footer style="margin: 50px 0; color: #333;">
-        &copy; 2026 Million Dollar Video Space
+    <footer style="margin-bottom: 40px; color: #222; font-size: 0.7rem; letter-spacing: 2px;">
+        EST. 2026 | NO REFUNDS | The Ultimate Ad Space
     </footer>
 
 </body>
