@@ -19,64 +19,36 @@
             background-color: var(--bg);
             color: white;
             font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: -10%; left: -10%;
-            width: 40%; height: 40%;
-            background: radial-gradient(circle, rgba(255, 69, 0, 0.1) 0%, transparent 70%);
-            z-index: -1;
-        }
-
-        header {
-            margin-top: 40px;
-            text-align: center;
-            animation: fadeInDown 1s ease;
-        }
+        header { margin-top: 40px; text-align: center; }
 
         h1 {
-            font-size: clamp(2.2rem, 8vw, 4rem);
+            font-size: clamp(2rem, 8vw, 3.5rem);
             font-weight: 900;
-            letter-spacing: -2px;
+            letter-spacing: -1px;
             background: linear-gradient(to right, #fff, #888);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            background: rgba(0, 255, 136, 0.1);
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: bold;
-            border: 1px solid rgba(0, 255, 136, 0.3);
             margin-bottom: 20px;
         }
 
         .ad-card {
             width: 95%;
-            max-width: 1100px;
+            max-width: 1000px;
             background: var(--glass);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 30px;
-            padding: 25px;
+            padding: 20px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-            animation: fadeInUp 1s ease 0.2s both;
         }
 
         .video-wrapper {
-            position: relative;
             width: 100%;
             border-radius: 20px;
             overflow: hidden;
@@ -89,75 +61,96 @@
         .info-panel {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .info-box { text-align: left; }
-        .info-label { color: #888; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
-        .info-value { font-size: 1.2rem; font-weight: bold; }
+        .info-box {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .info-label { color: #888; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 5px; }
+        .info-value { font-size: 1rem; font-weight: bold; }
         .info-value a { color: var(--accent); text-decoration: none; }
 
         .pricing-section {
-            margin-top: 50px;
+            margin-top: 40px;
             text-align: center;
-            animation: fadeInUp 1s ease 0.4s both;
-            padding-bottom: 60px;
             width: 100%;
+            max-width: 500px;
+            padding: 0 20px;
         }
 
+        /* Düzenlenmiş Fiyat Alanı */
         .price-grid {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             margin-bottom: 30px;
         }
 
-        .price-item .amount { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 900; color: #fff; }
+        .price-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .price-item.next { border-color: rgba(255, 69, 0, 0.2); }
+
+        .price-tag-label { 
+            display: block; 
+            font-size: 0.8rem; 
+            font-weight: 700; 
+            color: #888; 
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .amount { font-size: 2.2rem; font-weight: 900; }
         .price-item.next .amount { color: var(--primary); }
 
-        /* YENİ: Kural Kutusu */
-        .rule-box {
-            background: rgba(255, 69, 0, 0.1);
-            border: 1px dashed var(--primary);
-            padding: 15px;
-            border-radius: 15px;
-            max-width: 400px;
-            margin: 0 auto 30px;
-            font-size: 0.9rem;
-            color: #ffba93;
-        }
-
+        /* Buton - Daha yukarıda ve belirgin */
         .cta-button {
-            display: inline-block;
+            display: block;
             background: var(--primary);
             color: white;
-            padding: 22px 70px;
-            border-radius: 60px;
-            font-size: 1.3rem;
-            font-weight: 800;
+            padding: 20px;
+            border-radius: 20px;
+            font-size: 1.4rem;
+            font-weight: 900;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 15px 35px rgba(255, 69, 0, 0.4);
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.3);
+            margin-bottom: 25px;
         }
 
-        .cta-button:hover { transform: translateY(-5px) scale(1.02); }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255, 69, 0, 0.5); }
 
-        .reset-text { margin-top: 25px; color: #666; font-size: 0.8rem; }
+        /* Kurallar - En altta ve daha temiz */
+        .rule-box {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+        .rule-box strong { color: #aaa; display: block; margin-bottom: 5px; }
 
-        @media (max-width: 600px) { .info-panel { grid-template-columns: 1fr; } }
+        .reset-timer { margin-top: 10px; font-size: 0.75rem; color: #444; }
+
+        @media (max-width: 600px) {
+            .info-panel { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="status-badge">● LIVE: AD SPACE #001</div>
         <h1>The Ultimate Space</h1>
     </header>
 
@@ -170,12 +163,12 @@
 
         <div class="info-panel">
             <div class="info-box">
-                <div class="info-label">CURRENT OWNER</div>
+                <div class="info-label">Current Owner</div>
                 <div class="info-value">@YourUsername</div>
             </div>
             <div class="info-box">
-                <div class="info-label">WEBSITE / LINK</div>
-                <div class="info-value"><a href="https://yourlink.com" target="_blank">VISIT NOW →</a></div>
+                <div class="info-label">Direct Link</div>
+                <div class="info-value"><a href="https://yourlink.com" target="_blank">Visit Site →</a></div>
             </div>
         </div>
     </main>
@@ -183,26 +176,26 @@
     <section class="pricing-section">
         <div class="price-grid">
             <div class="price-item">
-                <span class="info-label">TODAY'S PRICE</span>
+                <span class="price-tag-label">Today</span>
                 <span class="amount">$10</span>
             </div>
             <div class="price-item next">
-                <span class="info-label">TOMORROW</span>
+                <span class="price-tag-label">Tomorrow</span>
                 <span class="amount">$20</span>
             </div>
         </div>
 
+        <a href="YOUR_SHOPIER_LINK" class="cta-button">BOOK SPACE NOW</a>
+
         <div class="rule-box">
-            <strong>⚠️ FIRST COME, FIRST SERVED:</strong><br>
-            Only 1 spot available per day. The first person to complete the payment owns the space.
+            <strong>FAIR PLAY RULES:</strong>
+            Only 1 spot available per 24h. First successful payment secures the slot. 
+            <div class="reset-timer">Price increases at 00:00 every day.</div>
         </div>
-        
-        <a href="YOUR_SHOPIER_LINK" class="cta-button">BOOK YOUR SPACE NOW</a>
-        <p class="reset-text">Price increases every day at 00:00.</p>
     </section>
 
-    <footer style="margin-bottom: 40px; color: #222; font-size: 0.7rem; letter-spacing: 2px;">
-        EST. 2026 | NO REFUNDS
+    <footer style="margin: 40px 0; color: #222; font-size: 0.7rem; letter-spacing: 2px;">
+        DAILY BILLBOARD PROJECT 2026
     </footer>
 
 </body>
