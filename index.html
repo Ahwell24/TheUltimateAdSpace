@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Digital Billboard</title>
+    <title>The Ultimate Ad Space | Daily Digital Billboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -42,7 +42,7 @@
         }
 
         h1 {
-            font-size: clamp(2rem, 8vw, 4rem);
+            font-size: clamp(2.2rem, 8vw, 4rem);
             font-weight: 900;
             letter-spacing: -2px;
             background: linear-gradient(to right, #fff, #888);
@@ -63,7 +63,6 @@
             margin-bottom: 20px;
         }
 
-        /* Video alanı daha büyük ve heybetli */
         .ad-card {
             width: 95%;
             max-width: 1100px;
@@ -83,7 +82,6 @@
             overflow: hidden;
             aspect-ratio: 16 / 9;
             background: #000;
-            box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
         }
 
         video { width: 100%; height: 100%; object-fit: contain; }
@@ -101,14 +99,14 @@
         .info-box { text-align: left; }
         .info-label { color: #888; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
         .info-value { font-size: 1.2rem; font-weight: bold; }
-        .info-value a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
-        .info-value a:hover { border-bottom: 1px solid var(--accent); }
+        .info-value a { color: var(--accent); text-decoration: none; }
 
         .pricing-section {
             margin-top: 50px;
             text-align: center;
             animation: fadeInUp 1s ease 0.4s both;
             padding-bottom: 60px;
+            width: 100%;
         }
 
         .price-grid {
@@ -118,9 +116,20 @@
             margin-bottom: 30px;
         }
 
-        .price-item .label { display: block; color: #888; margin-bottom: 5px; font-size: 0.9rem; }
-        .price-item .amount { font-size: clamp(1.5rem, 5vw, 2.5rem); font-weight: 800; color: #fff; }
+        .price-item .amount { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 900; color: #fff; }
         .price-item.next .amount { color: var(--primary); }
+
+        /* YENİ: Kural Kutusu */
+        .rule-box {
+            background: rgba(255, 69, 0, 0.1);
+            border: 1px dashed var(--primary);
+            padding: 15px;
+            border-radius: 15px;
+            max-width: 400px;
+            margin: 0 auto 30px;
+            font-size: 0.9rem;
+            color: #ffba93;
+        }
 
         .cta-button {
             display: inline-block;
@@ -135,31 +144,14 @@
             box-shadow: 0 15px 35px rgba(255, 69, 0, 0.4);
         }
 
-        .cta-button:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 45px rgba(255, 69, 0, 0.6);
-        }
+        .cta-button:hover { transform: translateY(-5px) scale(1.02); }
 
-        .reset-text {
-            margin-top: 25px;
-            color: #666;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
+        .reset-text { margin-top: 25px; color: #666; font-size: 0.8rem; }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
 
-        @media (max-width: 600px) {
-            .info-panel { grid-template-columns: 1fr; }
-            .price-grid { gap: 20px; }
-        }
+        @media (max-width: 600px) { .info-panel { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -191,13 +183,18 @@
     <section class="pricing-section">
         <div class="price-grid">
             <div class="price-item">
-                <span class="label">TODAY'S PRICE</span>
+                <span class="info-label">TODAY'S PRICE</span>
                 <span class="amount">$10</span>
             </div>
             <div class="price-item next">
-                <span class="label">TOMORROW</span>
+                <span class="info-label">TOMORROW</span>
                 <span class="amount">$20</span>
             </div>
+        </div>
+
+        <div class="rule-box">
+            <strong>⚠️ FIRST COME, FIRST SERVED:</strong><br>
+            Only 1 spot available per day. The first person to complete the payment owns the space.
         </div>
         
         <a href="YOUR_SHOPIER_LINK" class="cta-button">BOOK YOUR SPACE NOW</a>
@@ -205,7 +202,7 @@
     </section>
 
     <footer style="margin-bottom: 40px; color: #222; font-size: 0.7rem; letter-spacing: 2px;">
-        EST. 2026 | NO REFUNDS | The Ultimate Ad Space
+        EST. 2026 | NO REFUNDS
     </footer>
 
 </body>
